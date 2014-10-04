@@ -1,28 +1,16 @@
-== README
+# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Rails app to play with 'has_many through' Model associations.
 
-Things you may want to cover:
+A Code Fellow assignment.
 
-* Ruby version
+# Resources
 
-* System dependencies
+A single resource **Patient** can become in contact with many other patients.
+Of these patients we do know their name, SS number and Hospital where they stay
+quarantined or treated.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The way we map this relationship between patients is through another object: The
+**Contact** that aside from specifying a phisiscal contact between to
+Patients, it adds information about Location and Time, so CDC Agents have a way
+to further search and map the spread of the disease.
