@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004204118) do
-
-  create_table "contacts", force: true do |t|
-    t.integer  "patient_id"
-    t.integer  "infected_id"
-    t.string   "location"
-    t.string   "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "contacts", ["infected_id"], name: "index_contacts_on_infected_id"
-  add_index "contacts", ["patient_id"], name: "index_contacts_on_patient_id"
+ActiveRecord::Schema.define(version: 20141004221635) do
 
   create_table "patients", force: true do |t|
     t.string   "name"
@@ -32,5 +20,17 @@ ActiveRecord::Schema.define(version: 20141004204118) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "transmissions", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "infected_id"
+    t.string   "location"
+    t.string   "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transmissions", ["infected_id"], name: "index_transmissions_on_infected_id"
+  add_index "transmissions", ["patient_id"], name: "index_transmissions_on_patient_id"
 
 end

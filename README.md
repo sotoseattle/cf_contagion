@@ -11,6 +11,6 @@ Of these patients we do know their name, SS number and Hospital where they stay
 quarantined or treated.
 
 The way we map this relationship between patients is through another object: The
-**Contact** that aside from specifying a phisiscal contact between to
+**Transmission** Model that aside from specifying a phisical transmission between to
 Patients, it adds information about Location and Time, so CDC Agents have a way
 to further search and map the spread of the disease.

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contacts
+  resources :transmissions
   resources :patients
 
   root 'patients#index'

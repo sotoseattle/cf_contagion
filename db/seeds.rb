@@ -31,7 +31,7 @@ arr = [
 
 ids = Patient.all.map(&:id)
 arr.each do |a|
-  Contact.create(
+  Transmission.create(
     patient_id: Patient.find(ids[a[0]]).id,
     infected_id: Patient.find(ids[a[1]]).id,
     location: a[2],
