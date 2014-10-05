@@ -3,7 +3,7 @@ class Transmission < ActiveRecord::Base
   belongs_to :infected, class_name: 'Patient'
 
   validates :patient, :infected, :location, :date, presence: true
-  validates_uniqueness_of :infected, :scope => :patient
+  validates :infected, uniqueness: { scope: :patient }
   validate :repeat_transmission, :temporal_causality, on: :create
 
   def self.history
@@ -13,9 +13,8 @@ class Transmission < ActiveRecord::Base
   private
 
   def repeat_transmission
-    if Transmission.where(infected: infected).count > 0
-      errors.add(:infected, 'infected already a carrier')
-    end
+    errors.add(:infected, 'infected already a carrier') if
+      Transmission.where(infected: infected).count > 0
   end
 
   def temporal_causality

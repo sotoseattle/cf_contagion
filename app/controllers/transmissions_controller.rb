@@ -17,7 +17,6 @@ class TransmissionsController < ApplicationController
 
   def create
     @transmission = Transmission.new(transmission_params)
-    binding.pry
     if @transmission.save
       redirect_to @transmission, notice: 'Transmission was successfully created.'
     else
@@ -39,6 +38,7 @@ class TransmissionsController < ApplicationController
   end
 
   private
+
   def set_transmission
     @transmission = Transmission.find(params[:id])
   end
