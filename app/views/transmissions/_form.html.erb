@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :patient_id %><br>
-    <%= f.text_field :patient_id %>
+    <%= f.collection_select(:patient_id, all_possible_sources, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :patient_id %><br>
-    <%= f.text_field :patient_id %>
+    <%= f.label :infected_id %><br>
+    <%= f.collection_select(:infected_id, all_possible_targets, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :location %><br>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.date_field :date %>
   </div>
   <div class="actions">
     <%= f.submit %>

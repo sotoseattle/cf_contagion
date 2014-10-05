@@ -17,6 +17,7 @@ class TransmissionsController < ApplicationController
 
   def create
     @transmission = Transmission.new(transmission_params)
+    binding.pry
     if @transmission.save
       redirect_to @transmission, notice: 'Transmission was successfully created.'
     else
@@ -43,6 +44,6 @@ class TransmissionsController < ApplicationController
   end
 
   def transmission_params
-    params.require(:transmission).permit(:patient_id, :patient_id, :location, :date)
+    params.require(:transmission).permit(:patient_id, :infected_id, :location, :date)
   end
 end
