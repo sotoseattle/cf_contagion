@@ -15,5 +15,30 @@
   <%= @patient.hospital %>
 </p>
 
+<p>
+  <strong>Infected By:</strong>
+  <%= who_to_thank %>
+</p>
+
+<p>
+  <% unless @patient.infecteds.blank? %>
+    <strong>Infected the following:</strong>
+    <table>
+      <thead></thead>
+      <tbody>
+        <% @patient.infecteds.each do |inf| %>
+        <% t = @patient.transmissions.find_by(infected: inf) %>
+          <tr>
+            <td><%= inf.name %></td>
+            <td>On <%= t.date %></td>
+            <td>in <%= t.location %></td>
+            <td><%= link_to "follow infectious vector", inf %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<%= link_to 'Back to All Patients', patients_path %>

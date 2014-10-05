@@ -2,7 +2,7 @@ class TransmissionsController < ApplicationController
   before_action :set_transmission, only: [:show, :edit, :update, :destroy]
 
   def index
-    @transmissions = Transmission.all
+    @transmissions = Transmission.history
   end
 
   def show

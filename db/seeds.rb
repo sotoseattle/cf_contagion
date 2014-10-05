@@ -7,26 +7,25 @@ patients = 20.times do
 end
 
 arr = [
-  [0, 1, 'Seattle, WA', 'Oct 1, 2014'],
-  [1, 2, 'Seattle, WA', 'Oct 2, 2014'],
-  [1, 3, 'Seattle, WA', 'Oct 3, 2014'],
-  [1, 4, 'Seattle, WA', 'Oct 3, 2014'],
-  [1, 5, 'Seattle, WA', 'Oct 3, 2014'],
-  [2, 1, 'Seattle, WA', 'Oct 1, 2014'],
-  [2, 6, 'Seattle, WA', 'Oct 3, 2014'],
-  [2, 7, 'Seattle, WA', 'Oct 7, 2014'],
-  [2, 8, 'Seattle, WA', 'Oct 9, 2014'],
-  [3, 9 , 'Seattle, WA', 'Oct 10, 2014'],
-  [3, 10, 'Seattle, WA', 'Oct 10, 2014'],
-  [3, 11, 'Seattle, WA', 'Oct 10, 2014'],
-  [4, 12, 'Seattle, WA', 'Oct 15, 2014'],
-  [4, 13, 'Seattle, WA', 'Oct 17, 2014'],
-  [5, 14, 'Seattle, WA', 'Oct 15, 2014'],
-  [6, 15, 'Seattle, WA', 'Oct 21, 2014'],
-  [6, 16, 'Seattle, WA', 'Oct 21, 2014'],
-  [6, 17, 'Seattle, WA', 'Oct 21, 2014'],
-  [7, 18, 'Seattle, WA', 'Oct 10, 2014'],
-  [7, 19, 'Seattle, WA', 'Oct 18, 2014']
+  [0, 1, 'Seattle, WA',  '{ 2014, 10, 1 }'],
+  [1, 2, 'Seattle, WA',  '{ 2014, 10, 2 }'],
+  [1, 3, 'Seattle, WA',  '{ 2014, 10, 3 }'],
+  [1, 4, 'Seattle, WA',  '{ 2014, 10, 3 }'],
+  [1, 5, 'Seattle, WA',  '{ 2014, 10, 3 }'],
+  [2, 6, 'Seattle, WA',  '{ 2014, 10, 3 }'],
+  [2, 7, 'Seattle, WA',  '{ 2014, 10, 7 }'],
+  [2, 8, 'Seattle, WA',  '{ 2014, 10, 9 }'],
+  [3, 9 , 'Seattle, WA', '{ 2014, 10, 10 }'],
+  [3, 10, 'Seattle, WA', '{ 2014, 10, 10 }'],
+  [3, 11, 'Seattle, WA', '{ 2014, 10, 10 }'],
+  [4, 12, 'Seattle, WA', '{ 2014, 10, 15 }'],
+  [4, 13, 'Seattle, WA', '{ 2014, 10, 17 }'],
+  [5, 14, 'Seattle, WA', '{ 2014, 10, 15 }'],
+  [6, 15, 'Seattle, WA', '{ 2014, 10, 21 }'],
+  [6, 16, 'Seattle, WA', '{ 2014, 10, 21 }'],
+  [6, 17, 'Seattle, WA', '{ 2014, 10, 21 }'],
+  [7, 18, 'Seattle, WA', '{ 2014, 10, 10 }'],
+  [7, 19, 'Seattle, WA', '{ 2014, 10, 18 }']
 ]
 
 ids = Patient.all.map(&:id)
@@ -35,5 +34,5 @@ arr.each do |a|
     patient_id: Patient.find(ids[a[0]]).id,
     infected_id: Patient.find(ids[a[1]]).id,
     location: a[2],
-    date: a[3])
+    date: Date.strptime(a[3], "{ %Y, %m, %d }"))
 end
