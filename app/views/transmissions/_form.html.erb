@@ -1,0 +1,33 @@
+<%= form_for(@transmission) do |f| %>
+  <% if @transmission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transmission.errors.count, "error") %> prohibited this transmission from being saved:</h2>
+
+      <ul>
+      <% @transmission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :patient_id %><br>
+    <%= f.collection_select(:patient_id, all_possible_sources, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :infected_id %><br>
+    <%= f.collection_select(:infected_id, all_possible_targets, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_field :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

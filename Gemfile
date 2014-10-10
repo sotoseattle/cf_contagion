@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'faker'
 gem 'foundation-rails', '5.4.5'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.3'
